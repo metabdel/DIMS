@@ -307,7 +307,7 @@ for hmdb in ${outdir}/hmdb_part/${scanmode}_* ; do
   echo "#!/bin/sh
   /hpc/local/CentOS7/common/lang/R/3.2.2/bin/Rscript ${scripts}/6-peakGrouping.R \$hmdb ${outdir} ${scanmode} ${resol} ${ppm}
   " > ${outdir}/jobs/6-peakGrouping/${scanmode}_\${input}.sh
-  cur_id=\$(sbatch --job-name=6-peakGrouping_\${input}_${scanmode}_${name} --time=02:00:00 --mem=4G --output=${outdir}/logs/6-peakGrouping/${scanmode}_\${input}.o --error=${outdir}/logs/6-peakGrouping/${scanmode}_\${input}.e ${global_sbatch_parameters} ${outdir}/jobs/6-peakGrouping/${scanmode}_\${input}.sh)
+  cur_id=\$(sbatch --job-name=6-peakGrouping_\${input}_${scanmode}_${name} --time=02:30:00 --mem=4G --output=${outdir}/logs/6-peakGrouping/${scanmode}_\${input}.o --error=${outdir}/logs/6-peakGrouping/${scanmode}_\${input}.e ${global_sbatch_parameters} ${outdir}/jobs/6-peakGrouping/${scanmode}_\${input}.sh)
   job_ids+="\${cur_id}:"
 done
 job_ids=\${job_ids::-1}
@@ -399,7 +399,7 @@ for hmdb in ${outdir}/hmdb_part_adductSums/${scanmode}_* ; do
 
   /hpc/local/CentOS7/common/lang/R/3.2.2/bin/Rscript ${scripts}/11-runSumAdducts.R \$hmdb ${outdir} ${scanmode} ${adducts} ${z_score}
   " > ${outdir}/jobs/11-runSumAdducts/${scanmode}_\${input}.sh
-  cur_id=\$(sbatch --job-name=11-runSumAdducts_\${input}_${scanmode}_${name} --time=02:00:00 --mem=8G --output=${outdir}/logs/11-runSumAdducts/${scanmode}_\${input}.o --error=${outdir}/logs/11-runSumAdducts/${scanmode}_\${input}.e ${global_sbatch_parameters} ${outdir}/jobs/11-runSumAdducts/${scanmode}_\${input}.sh)
+  cur_id=\$(sbatch --job-name=11-runSumAdducts_\${input}_${scanmode}_${name} --time=03:00:00 --mem=8G --output=${outdir}/logs/11-runSumAdducts/${scanmode}_\${input}.o --error=${outdir}/logs/11-runSumAdducts/${scanmode}_\${input}.e ${global_sbatch_parameters} ${outdir}/jobs/11-runSumAdducts/${scanmode}_\${input}.sh)
   job_ids+="\${cur_id}:"
 done
 job_ids=\${job_ids::-1}
