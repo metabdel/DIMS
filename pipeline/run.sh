@@ -378,7 +378,7 @@ job_ids=\${job_ids::-1}
 # 10-collectSamplesFilled
 echo "#!/bin/sh
 
-/hpc/local/CentOS7/common/lang/R/3.2.2/bin/Rscript ${scripts}/10-collectSamplesFilled.R ${outdir} ${scanmode} ${normalization} ${scripts} ${z_score}
+/hpc/local/CentOS7/common/lang/R/3.2.2/bin/Rscript ${scripts}/10-collectSamplesFilled.R ${outdir} ${scanmode} ${normalization} ${scripts} ${z_score} ${ppm}
 " > ${outdir}/jobs/10-collectSamplesFilled/${scanmode}.sh
 col_id=\$(sbatch --job-name=10-collectSamplesFilled_${scanmode}_${name} --time=01:00:00 --mem=8G --dependency=afterany:\${job_ids} --output=${outdir}/logs/10-collectSamplesFilled/${scanmode}.o --error=${outdir}/logs/10-collectSamplesFilled/${scanmode}.e ${global_sbatch_parameters} ${outdir}/jobs/10-collectSamplesFilled/${scanmode}.sh)
 
